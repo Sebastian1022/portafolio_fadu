@@ -1,0 +1,371 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #1a1a1a;
+            --accent-color: #000;
+            --hover-color: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 200px;
+            height: 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding:1em;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            transition: right 0.4s ease;
+            z-index: 999;
+        }
+
+        nav.active {
+            right: 0;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--hover-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .instagram-icon {
+            width: 28px;
+            height: 28px;
+            fill: var(--text-color);
+            transition: fill 0.3s ease;
+        }
+
+        .instagram-icon:hover {
+            fill: var(--hover-color);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Portfolio Page */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 3/4;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        /* Contact Page */
+        .contact-section {
+            display: none;
+            max-width: 700px;
+            margin: 4rem auto;
+        }
+
+        .contact-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .contact-section h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-block h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--hover-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-block a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-block a:hover {
+            color: var(--hover-color);
+        }
+
+        .contact-block p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer-text {
+            font-size: 1rem;
+            color: var(--grey-color);
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-modal:hover {
+            opacity: 0.7;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+
+            nav {
+                position: static;
+                width: auto;
+                height: auto;
+                background-color: transparent;
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            nav a {
+                font-size: 0.95rem;
+            }
+
+            .instagram-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            header {
+                padding: 2rem 2.5rem;
+            }
+
+            main {
+                padding: 3rem 2.5rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+
+            .contact-section h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            header {
+                padding: 2rem 4rem;
+            }
+
+            main {
+                padding: 4rem 4rem;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 3rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                gap: 3rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+            }
+
+            .contact-section {
+                margin: 6rem auto;
+            }
+
+            .contact-section h1 {
+                font-size: 3.5rem;
+            }
+        }
