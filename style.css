@@ -279,9 +279,11 @@
             transition: opacity 0.3s ease;
         }
             .lasalle_logo{
-                        background-image:url ('lasalle_logo.png');
+                        background-image:url ('logo_salle.png');
                           background-repeat: no-repeat;
                         background-size: contain;
+                        witdh:auto;
+                        height:auto;
                         text-align:center;
             }
 
