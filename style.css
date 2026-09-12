@@ -279,9 +279,10 @@
             transition: opacity 0.3s ease;
         }
             .lasalle_logo{
-                position: absolute;
-                        width:100px;
-                        height:200px;
+                        background-image:url ('lasalle_logo.png');
+                          background-repeat: no-repeat;
+                        background-size: contain;
+                        text-align:center;
             }
 
         .close-modal:hover {
